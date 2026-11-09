@@ -135,8 +135,8 @@ def initialize_weights(n_features, seed=None):
     if seed is not None:
         np.random.seed(seed)
 
-
     weights = np.random.normal(loc=0.0, scale=0.01, size=n_features)
+
     return weights
 
 # Step 12 - gd_step (not yet solved)
