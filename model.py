@@ -180,8 +180,22 @@ def epoch_train_val_losses(X_train, y_train, X_val, y_val, weights):
 
     return float(loss_train), float(loss_val)
 
-# Step 14 - update_early_stop_state (not yet solved)
-# TODO: implement
+# Step 14 - update_early_stop_state
+def update_early_stop_state(val_loss, best_val_loss, wait, weights, best_weights, patience):
+    # TODO: Update best weights and patience counter; signal stop when val loss stalls...
+    if best_val_loss > val_loss:
+        new_best_val_loss = val_loss
+        new_wait = 0
+        new_best_weights = weights.copy()
+        stop = False
+
+    else:
+        new_best_val_loss = best_val_loss
+        new_wait = wait + 1
+        new_best_weights = best_weights
+        stop = (new_wait >=patience)
+
+    return new_best_val_loss, new_wait, new_best_weights, stop
 
 # Step 15 - init_training_state (not yet solved)
 # TODO: implement
