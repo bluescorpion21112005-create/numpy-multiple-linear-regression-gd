@@ -188,12 +188,11 @@ def update_early_stop_state(val_loss, best_val_loss, wait, weights, best_weights
         new_wait = 0
         new_best_weights = weights.copy()
         stop = False
-
     else:
         new_best_val_loss = best_val_loss
         new_wait = wait + 1
         new_best_weights = best_weights
-        stop = (new_wait >=patience)
+        stop = (new_wait >= patience)
 
     return new_best_val_loss, new_wait, new_best_weights, stop
 
