@@ -77,10 +77,17 @@ def add_bias_column(X):
 # Step 6 - prepare_design_matrix
 def prepare_design_matrix(X, mean, std):
     # TODO: Standardize features then add the bias column to form the design matrix.
+    """
     n = X.shape[0]
     ones = np.ones((n, 1))
     X_scaled = (X - mean) / std
     pdm = np.hstack((ones, X_scaled))
+    return pdm
+    """
+
+    X_scaled = standardize_features(X, mean, std)
+    pdm = add_bias_column(X_scaled)
+
     return pdm
 
 # Step 7 - predict_linear (not yet solved)
