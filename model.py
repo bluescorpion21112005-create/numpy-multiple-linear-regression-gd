@@ -110,8 +110,15 @@ def mse_loss(y_true, y_pred):
     # TODO: Return the average of squared residuals as a scalar float.
     return np.mean((y_true - y_pred) ** 2)
 
-# Step 9 - mse_gradient (not yet solved)
-# TODO: implement
+# Step 9 - mse_gradient
+def mse_gradient(X, y_true, y_pred):
+    # TODO: Return the analytic MSE gradient w.r.t. weights: (2/n) X^T (y_pred - y_true)
+    n = X.shape[0]
+    r = y_pred - y_true
+    X_transpose = np.transpose(X)
+    matrix_vector = np.dot(X_transpose, r)
+    mg = (2 / n) * matrix_vector
+    return mg
 
 # Step 10 - normal_equation (not yet solved)
 # TODO: implement
